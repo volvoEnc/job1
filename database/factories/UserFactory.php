@@ -30,8 +30,8 @@ $factory->define(User::class, function (Faker $faker) {
 });
 $factory->state(User::class,'manager', function (Faker $faker) {
     return [
-        'email' => 'manager@mail.ru',
-        'password' => Hash::make(12345),
+        'email' => env('MANAGER_EMAIL'),
+        'password' => Hash::make(env('MANAGER_PASSWORD')),
         'role' => 'manager',
     ];
 });
