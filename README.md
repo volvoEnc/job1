@@ -4,7 +4,10 @@
 
 - Выполните
 ```
-composer-install
+composer install
+```
+- _Выполните (не обязательно)_
+```
 npm install
 npm run dev
 ```

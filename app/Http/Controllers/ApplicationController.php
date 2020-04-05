@@ -33,7 +33,7 @@ class ApplicationController extends Controller
 
     public function create ()
     {
-        return view('user.create');
+//        return view('user.create');
         if(Auth::user()->lastApplicationDate()->diffInHours(Carbon::now()) > 23) {
             return view('user.create');
         }
