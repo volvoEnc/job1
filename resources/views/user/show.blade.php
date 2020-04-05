@@ -58,34 +58,34 @@
                             @endforeach
                         </div>
                         @if($application->status == 'open')
-                        <hr>
-                        <form method="post" enctype="multipart/form-data" action="{{route('m-update', ['application' => $application->id])}}">
-                            @csrf
-                            <input type="hidden" name="page" value="{{app('request')->input('preview-page')}}">
-                            <div class="form-group">
-                                <label>Текст сообщения</label>
-                                <textarea class="form-control mh-25 @error('message') is-invalid @enderror" name="message">{{old('message')}}</textarea>
-                                @error('message')
+                            <hr>
+                            <form method="post" enctype="multipart/form-data" action="{{route('update', ['application' => $application->id])}}">
+                                @csrf
+                                <input type="hidden" name="page" value="{{app('request')->input('preview-page')}}">
+                                <div class="form-group">
+                                    <label>Текст сообщения</label>
+                                    <textarea class="form-control mh-25 @error('message') is-invalid @enderror" name="message">{{old('message')}}</textarea>
+                                    @error('message')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label>Вложения</label>
-                                <input type="file" name="attachments[]" multiple class="form-control-file @error('attachments') is-invalid @enderror">
-                                @error('attachments')
-                                <span class="invalid-feedback" role="alert">
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label>Вложения</label>
+                                    <input type="file" name="attachments[]" multiple class="form-control-file @error('attachments') is-invalid @enderror">
+                                    @error('attachments')
+                                    <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
-                            </div>
-                            <div class="d-flex justify-content-between">
+                                    @enderror
+                                </div>
+                                <div class="d-flex justify-content-between">
 
-                                    <a class="btn btn-danger" href="{{route('m-close', [ 'application' => $application->id, 'page' => app('request')->input('page') ])}}">Закрыть</a>
-                                <input type="submit" value="Отправить" class="btn btn-primary ml-auto">
-                            </div>
-                        </form>
+                                    <a class="btn btn-danger" href="{{route('close', [ 'application' => $application->id, 'page' => app('request')->input('page') ])}}">Закрыть</a>
+                                    <input type="submit" value="Отправить" class="btn btn-primary ml-auto">
+                                </div>
+                            </form>
                         @endif
                     </div>
                 </div>

@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $manager = factory(\App\User::class)->states('manager')->create();
+        $user = factory(\App\User::class)->states('user')->create();
         factory(\App\User::class, 35)->create()->each(function ($user) use ($manager) {
             factory(\App\Application::class, random_int(0, 10))->create([
                 'user_id' => $user->id,
@@ -26,6 +27,10 @@ class DatabaseSeeder extends Seeder
                         'application_id' => $application->id
                     ]);
                 }
+                factory(\App\Message::class, 1)->create([
+                    'user_id' => $application->answered == 'user' ? $user->id : $manager->id,
+                    'application_id' => $application->id
+                ]);
             });
         });
 }

@@ -35,3 +35,10 @@ $factory->state(User::class,'manager', function (Faker $faker) {
         'role' => 'manager',
     ];
 });
+$factory->state(User::class,'user', function (Faker $faker) {
+    return [
+        'email' => 'user@mail.ru',
+        'password' => Hash::make(54321),
+        'role' => 'user',
+    ];
+});

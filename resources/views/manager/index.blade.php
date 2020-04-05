@@ -35,7 +35,7 @@
                                             <a class="dropdown-item" href="{{route('m-list', ['filter' => 'no-view'])}}">Просмотренные / непросмотренные</a>
                                         @endif
 
-                                        @if (app('request')->input('filter') == 'no-view')
+                                        @if (app('request')->input('filter') == 'no-answered')
                                             <a class="dropdown-item" href="{{route('m-list', ['filter' => 'answered'])}}">Отвеченные / неотвеченные</a>
                                         @else
                                             <a class="dropdown-item" href="{{route('m-list', ['filter' => 'no-answered'])}}">Отвеченные / неотвеченные</a>

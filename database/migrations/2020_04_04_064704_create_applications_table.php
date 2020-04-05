@@ -19,6 +19,7 @@ class CreateApplicationsTable extends Migration
             $table->foreignId('manager_id')->nullable();
             $table->string('status')->default('open');
             $table->string('subject');
+            $table->string('answered');
             $table->boolean('view')->default(false);
             $table->timestamps();
 
