@@ -7,6 +7,7 @@ Laravel 7.0 - требованя окружения соответствующи
 - Выполните
 ```
 composer install
+php artisan storage:link
 ```
 - _Выполните (не обязательно)_
 ```
